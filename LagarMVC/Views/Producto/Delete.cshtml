@@ -1,0 +1,57 @@
+﻿@model CapaDatos.Entidades.Producto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Borrar el siguiente producto? @Model.NomProducto.ToUpper()</h3>
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarcaProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarcaProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostoProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostoProducto)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

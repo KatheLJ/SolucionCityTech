@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CapaDatos.Entidades.Producto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarcaProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostoProducto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarcaProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostoProducto)
+        </td>
+        <td>            
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdProducto}) |
+            @Html.ActionLink("Details", "Details", new { id = item.IdProducto }) |
+            @Html.ActionLink("Delete", "Delete", new {  id= item.IdProducto  })
+        </td>
+    </tr>
+}
+
+</table>
