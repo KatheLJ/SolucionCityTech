@@ -9,17 +9,7 @@ namespace Utilitarios
     public class Tools
     {
 
-        public static decimal CalcularCosto(decimal Costo)
-        {
-            return Costo * Convert.ToDecimal(1.14);
-        }
-
-        public static decimal ImprimirIntereses(double pTasa,char TipoTasa)
-        {
-            return Convert.ToDecimal(100);
-        }
-
-
+        
 
 
 

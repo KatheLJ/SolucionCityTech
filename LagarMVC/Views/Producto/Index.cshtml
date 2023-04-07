@@ -3,10 +3,17 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
-<h2>Index</h2>
+<div class="row text-center pt-3">
+    <div class="col-lg-6 m-auto">
+        <br />
+        <h2 class="h2">Listado de Productos disponibles en el sistema</h2>
+    </div>
+</div>
+
+<br />
 
 <p>
     @Html.ActionLink("Nuevo", "Create")
@@ -28,26 +35,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarcaProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostoProducto)
-        </td>
-        <td>            
-            @Html.ActionLink("Edit", "Edit", new { id = item.IdProducto}) |
-            @Html.ActionLink("Details", "Details", new { id = item.IdProducto }) |
-            @Html.ActionLink("Delete", "Delete", new {  id= item.IdProducto  })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarcaProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostoProducto)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-success btn-sm" }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.IdProducto }, new { @class = "btn btn-success btn-sm" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-success btn-sm" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create", new { }, new { @class = "btn btn-secondary btn-sm" })
+</p>
